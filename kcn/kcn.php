@@ -1,29 +1,29 @@
 <?php
 /*
-Plugin Name: Kannada Chankya Neeti
+Plugin Name: Kannada Chanakya Neeti
 Plugin URI: https://www.sharadhiinfotech.com/wordpress-plugins-kannada-chankya-neeti/
 Description: This plugin creates a widget which Show a random kannada verse from Chanakya Niti written by Chanakya on your website!. You can add this widget to any widgetized areas, such as sidebars.
 Author: Raghavendra Uppunda
-Version: 1.0.1
+Version: 1.0.3
 Author URI: https://www.sharadhiinfotech.com/
 */
 
-/*  This file is part of Kannada Chankya Neeti plugin, developed by Raghavendra Uppunda (email: contact@sharadhiinfotech.com)
+/*  This file is part of Kannada Chanakya Neeti plugin, developed by Raghavendra Uppunda (email: contact@sharadhiinfotech.com)
 
 	Chanakya Neeti is a collection of aphorisms, said to be selected by Chanakya from the various shastras.
 
-    Kannada Chankya Neeti is free software: you can redistribute it and/or modify
+    Kannada Chanakya Neeti is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    Kannada Chankya Neeti is distributed in the hope that it will be useful,
+    Kannada Chanakya Neeti is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Kannada Chankya Neeti plugin. If not, see <http://www.gnu.org/licenses/>.
+    along with Kannada Chanakya Neeti plugin. If not, see <http://www.gnu.org/licenses/>.
 */
 
 function kcn_get_neeti() {
@@ -39,6 +39,15 @@ function kcn_show_neeti() {
 	
 	echo "<p id='kcn' class='kcn'>$kcn</p>";
 }
+
+function kcn_scripts() {
+    wp_register_style('kcn-css', plugins_url('kcn.css',__FILE__ ));
+    wp_enqueue_style('kcn-css');
+  //  wp_register_script( 'kcn-js', plugins_url('kcn.js',__FILE__ ));
+   // wp_enqueue_script('kcn-js');
+}
+
+add_action( 'wp_enqueue_scripts','kcn_scripts');
 
 
 class Kannada_Chanakya_Neeti_Widget extends WP_Widget {
